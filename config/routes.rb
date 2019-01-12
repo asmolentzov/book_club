@@ -15,7 +15,11 @@ Rails.application.routes.draw do
   delete '/reviews/:id', as: 'review', to: 'reviews#destroy'
 
   root 'welcome#index'
-  resources :users, only: [:show]
+  
+  # resources :users, only: [:show]
+  get '/users/:id', as: 'user', to: 'users#show'
 
-  resources :authors, only: [:show, :destroy]
+  # resources :authors, only: [:show, :destroy]
+  get '/authors/:id', as: 'author', to: 'authors#show'
+  delete 'authors/:id', to: 'authors#destroy'
 end
